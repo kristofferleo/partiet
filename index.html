@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Partiet</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
+
+		<!-- Bootstrap Switch CSS -->
+		<link rel="stylesheet" href="libraries/bootstrap/css/bootstrap-switch.min.css">
+
+		<!-- Skurk CSS -->
+		<link rel="stylesheet" href="css/intro.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/map.css">
+		<link rel="stylesheet" href="css/party.css">
+
+		<!-- JQuery JS -->
+		<script src="libraries/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap JS -->
+		<script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Bootstrap Switch JS -->
+		<script src="libraries/bootstrap/js/bootstrap-switch.min.js"></script>
+
+		<!-- D3 JS -->
+		<script src="libraries/d3.v3/d3.v3.min.js"></script>
+
+		<!-- TopoJSON JS -->
+		<script src="libraries/topojson.v1.min.js"></script>
+
+		<!-- Skurk JS -->
+		<script src="js/intro.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Wrap all page content here -->
+		<div id="wrap">
+
+			<!-- Intro content -->
+			<div id="intro">
+
+				<h1 id="introHeader">Partiet</h1>
+
+				<h6 id="introText">Hur långt når Dina åsikter?</h6>
+
+				<p>Skapa ditt parti, välj ett landskap och gör rätt val. Har du vad som krävs för att bli ledare över Sverige?</p>
+
+				<button type="button" id="startButton" class="btn btn-default btn-lg">
+					Start <span class="glyphicon glyphicon-circle-arrow-right"></span>
+				</button>
+
+			</div>
+			
+			
+
+			<!-- Visualization content -->
+			<div id="main">
+
+				<!-- Content container -->
+				<div class="container-non-responsive">
+
+						<div id="viewMain" class="col-md-4">
+							
+							<!-- Party options -->
+							<div id="partyView">
+								<button type="button" id="closeButton" class="btn btn-default btn-sm" data-toggle="collaps">
+										<p id = "kommunInfo" style="font-size:14pt;">Stäng</p>
+									</button>
+								<h1>Ditt parti</h1>
+								<p>Här kommer olika settings för ditt parti</p>
+								
+							</div>	
+							
+							<div id="map">								
+								
+								<div class="btn-group" style = "display: inline-block; bottom: 0;  width: 400px; z-index: 2; position: absolute;">
+									
+									<!--Button for party options-->
+									<button type="button" id="partyButton" class="btn btn-default btn-sm" style="width: 100px; height: 50px; margin-right: 5px;" data-toggle="collaps">
+										<p id = "kommunInfo" style="font-size:14pt;">Parti</p>
+									</button>
+									
+									<!--Button for kommun info-->
+									<button type="button" class="btn btn-default btn-sm btn-kommun" style="width: 190px; height: 50px;margin-right:5px;" data-toggle="collaps">
+										<p id = "kommunInfo" style="font-size: 18pt;"> Sverige </p>
+									</button>
+									
+									<!--placeholder button-->
+									<button type="button" class="btn btn-default btn-sm" style="width: 100px; height: 50px; right:0;" data-toggle="collaps">
+										<p id = "kommunInfo" style="float:left;margin:0;margin-left:4px;margin-right:4px;"> </p>
+									</button>
+									
+								</div>
+									
+							
+							</div>
+
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="js/map.js"></script>
+        <script src="js/main.js"></script>
+		<script src="js/buttons.js"></script>
+		<script src="js/party.js"></script>
+
+	</body>
+
+</html>

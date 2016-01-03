@@ -9,7 +9,8 @@ function Map(){
 	var width = mapDiv.width() - margin.right - margin.left + 40;
     var height = mapDiv.height() - margin.top - margin.bottom + 40;
     var geoData;
-    var populationData;
+    var kommunData;
+    var kommunVoteData;
 
     var zoom = d3.behavior.zoom()
         .scaleExtent([1, 12])
@@ -32,11 +33,11 @@ function Map(){
 	g = svg.append("g")
         .attr("id", "g_mapID");
 	
-    // Load kommuner
+    // Ladda kommuner
     d3.json("data/kommun.json", function(data) {
-        populationData = data;
-
-            // Load geographic data
+        kommunData = data;
+        
+            // Ladda geographic data
             d3.json("data/swe_mun.json", function(error, sweden) {
 
             geoData = topojson.feature(sweden, sweden.objects.swe_mun).features;
@@ -44,7 +45,10 @@ function Map(){
 
         });
 	});
-        
+    
+    d3.json("data/2014_riksdagsval_per_kommun.json", function(data) {
+        kommunVoteData = data;
+	});    
 	
 
     // Draw map
@@ -76,9 +80,15 @@ function Map(){
             .on("click", function(d){
 
                 d3.select()
-
+                
                 var clusterValMonth = $('#clusterbtn_stream').bootstrapSwitch('state');
-
+                
+                
+                /* uppdaterar information i spelet */
+                $(".btn-kommun").html(d.properties.name);
+                drawSelectedKommun(d.properties.name);
+                updateKummunData(d.properties.name);
+                
                 if (clusterValMonth) {
 
                     d3.select(this)
@@ -90,10 +100,8 @@ function Map(){
                                 }); 
 
                             return "#a8ca61";
-                        });
-                        
-                     drawSelectedKommun();
-                        
+                            
+                        });    
                         
                 }
                 else {
@@ -101,15 +109,67 @@ function Map(){
                 }
             });
 
-
-		
     }
 
-    function drawSelectedKommun(){
-        var selectedKommun = "test";
-        $(".btn-kommun").html(selectedKommun);
+    function drawSelectedKommun(current){
+
+        $.each(kommunData, function(key, objects) {
+            
+            if(current == key){
+                
+                for(var folkmangd in objects) {
+                    var value = objects[folkmangd];
+                    
+                    $(".folkmangd-result").html("Folkmängd: " + value);  
+                }
+            }
+        });
     }
- 
+    
+    function updateKummunData(current) {
+
+        $.each(kommunVoteData, function(key, objects) {
+            if(current == key){
+                /*for(var Mtal in objects) {
+                    var val = objects[key]["Mval"];*/
+                    /*console.log(key + " = " + objects[key]);*/
+                    /*console.log(val);
+                }*/
+            
+            //Better to construct options first and then pass it as a parameter
+            var options = {
+                title: {
+                    text: current
+                },
+                        animationEnabled: true,
+                data: [
+                {
+                    type: "column", //change it to line, area, bar, pie, column etc
+                    dataPoints: [
+                        /*{ label: "M", y: Mval },*/
+                        { label: "M", y: 11 },
+                        { label: "C", y: 14 },
+                        { label: "MP", y: 16 },
+                        { label: "SD", y: 19 },
+                        { label: "KD", y: 15 },
+                        { label: "FP", y: 12 },
+                        { label: "D", y: 10 }
+                    ]
+                }
+                ]
+            };
+
+            $("#chartContainer").CanvasJSChart(options);
+
+        }            
+      }); 
+    }
+    
+
+ function pickKommun(){
+     document.cookie="startKommun=yes";
+     
+ }
 
     // Zoom and panning
     function move() {

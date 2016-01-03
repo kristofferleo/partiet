@@ -1,8 +1,8 @@
 Partiet
 =====
 
-Contributors: 
+Skapat av:
 Kristoffer Leo
 
-Special thanks to: 
+Speciellt tack till: 
 John Hollén

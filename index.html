@@ -1,223 +1,212 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Partiet</title>
+<head>
+    <meta charset="utf-8">
+    <title>Partiet</title>
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
 
-		<!-- Bootstrap Switch CSS -->
-		<link rel="stylesheet" href="libraries/bootstrap/css/bootstrap-switch.min.css">
+    <!-- Bootstrap Switch CSS -->
+    <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap-switch.min.css">
 
-		<!-- Partiet CSS -->
-		<link rel="stylesheet" href="css/menu.css">
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/map.css">
-		<link rel="stylesheet" href="css/party.css">
-        <link rel="stylesheet" href="css/stats.css">
-        <link rel="stylesheet" href="css/buttons.css">
+    <!-- Partiet CSS -->
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/party.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="css/buttons.css">
 
-		<!-- JQuery JS -->
-		<script src="libraries/jquery-2.1.0.min.js"></script>
+    <!-- JQuery JS -->
+    <script src="libraries/jquery-2.1.0.min.js"></script>
 
-		<!-- Bootstrap JS -->
-		<script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
 
-		<!-- Bootstrap Switch JS -->
-		<script src="libraries/bootstrap/js/bootstrap-switch.min.js"></script>
+    <!-- Bootstrap Switch JS -->
+    <script src="libraries/bootstrap/js/bootstrap-switch.min.js"></script>
 
-		<!-- D3 JS -->
-		<script src="libraries/d3.v3/d3.v3.min.js"></script>
+    <!-- D3 JS -->
+    <script src="libraries/d3.v3/d3.v3.min.js"></script>
 
-		<!-- TopoJSON JS -->
-		<script src="libraries/topojson.v1.min.js"></script>
+    <!-- TopoJSON JS -->
+    <script src="libraries/topojson.v1.min.js"></script>
 
-		<!-- Partiet JS -->
-		<script src="js/menu.js"></script>
-        
-        <!-- graph test -->
-        
-        <!--<script type="text/javascript" src="libraries/jquery-1.11.1.min.js"></script>-->
-        <script type="text/javascript" src="libraries/jquery.canvasjs.min.js"></script>
-        <!--<script type="text/javascript" src="libraries/jquery-2.1.0.min.js"></script>-->
-        
-        
-	</head>
+    <!-- Partiet JS -->
+    <script src="js/menu.js"></script>
 
-	<body>
+    <!-- graph test -->
 
-		<!-- Wrap all page content here -->
-		<div id="wrap">
-            
-			<!-- Intro content -->
-			
-            <div class="main-menu">
-                <div class="intro-menu">
-                    <h1 id="introHeader">Partiet</h1>
+    <!--<script type="text/javascript" src="libraries/jquery-1.11.1.min.js"></script>-->
+    <script type="text/javascript" src="libraries/jquery.canvasjs.min.js"></script>
+    <!--<script type="text/javascript" src="libraries/jquery-2.1.0.min.js"></script>-->
 
-                    <h6 id="introText">Hur långt når Dina åsikter?</h6>
 
-                    <p>Skapa ditt parti och välj en kommun att grunda ditt parti i. Har du vad som krävs för att bli ledare över Sverige?</p>
+</head>
 
-                    <button type="button" id="new-game" class="btn btn-default btn-lg">
-                        Nytt spel
-                    </button>
-                    
-                    <button type="button" id="load-game" class="btn btn-default btn-lg">
-                        Ladda spel
-                    </button>
+<body>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+        <!-- Intro content -->
+
+        <div class="main-menu">
+            <div class="intro-menu">
+                <h1 id="introHeader">Partiet</h1>
+
+                <h6 id="introText">Hur långt når Dina åsikter?</h6>
+
+                <p>Skapa ditt parti och välj en kommun att grunda ditt parti i. Har du vad som krävs för att bli ledare över
+                    Sverige?
+                </p>
+
+                <button type="button" id="new-game" class="btn btn-default btn-lg">
+                    Nytt spel
+                </button>
+
+                <button type="button" id="load-game" class="btn btn-default btn-lg">
+                    Ladda spel
+                </button>
+            </div>
+
+            <div class="new-party-menu">
+                <h2>Ställ in dina åsikter</h2>
+                <p>Kryssa i hur mycket du håller med i nedanstående frågor. Längst till vänster - Håller inte alls med. Längst
+                    till höger - Håller med.</p>
+                <form>
+                    <label>Partinamn</label>
+                    <input type="text" name="name">
+                    </br>
+
+                    <label>Partiets förkortning</label>
+                    <input type="text" name="shortname" maxlength="3">
+
+                    <label>Fråga 1: Arbetstiden bör förkortas</label>
+                    </br>
+                    Håller inte med
+                    <input type="radio" name="q1" value="1">
+                    <input type="radio" name="q1" value="2">
+                    <input type="radio" name="q1" value="3">
+                    <input type="radio" name="q1" value="4">
+                    <input type="radio" name="q1" value="5"> Håller med
+
+                    <label>Fråga 2: A-kassan bör höjas</label>
+                    </br>
+                    Håller inte med
+                    <input type="radio" name="q2" value="1">
+                    <input type="radio" name="q2" value="2">
+                    <input type="radio" name="q2" value="3">
+                    <input type="radio" name="q2" value="4">
+                    <input type="radio" name="q2" value="5"> Håller med
+
+                    <label>Fråga 3: Det bör vara billigare att anställa unga än andra grupper av människor</label>
+                    </br>
+                    Håller inte med
+                    <input type="radio" name="q3" value="1">
+                    <input type="radio" name="q3" value="2">
+                    <input type="radio" name="q3" value="3">
+                    <input type="radio" name="q3" value="4">
+                    <input type="radio" name="q3" value="5"> Håller med
+
+                    <label>Fråga 4: Det är viktigt att öka det ekonomiska stödet till landsbygden</label>
+                    </br>
+                    Håller inte med
+                    <input type="radio" name="q4" value="1">
+                    <input type="radio" name="q4" value="2">
+                    <input type="radio" name="q4" value="3">
+                    <input type="radio" name="q4" value="4">
+                    <input type="radio" name="q4" value="5"> Håller med
+
+                    </br>
+                    <input id="new-profile" type="submit" class="btn btn-default btn-lg" value="Starta spel">
+                </form>
+            </div>
+        </div>
+
+        <!-- Visualization content -->
+        <div id="main">
+
+            <!-- Content container -->
+            <div class="container-non-responsive">
+
+                <div id="viewMain" class="col-md-4">
+
+                    <!-- Top menu bar -->
+                    <div class="top-group">
+                        <button id="btn-settings" class="btn btn-default btn-lg">Settings</button>
+                    </div>
+
+                    <!-- Party options -->
+                    <div id="partyView">
+                        <button type="button" id="party-close-btn" class="btn btn-default btn-sm" data-toggle="collaps">
+                            <p id="kommunInfo" style="font-size:14pt;">Stäng</p>
+                        </button>
+                        <h1>Ditt parti</h1>
+                        <p>Här kommer olika settings för ditt parti</p>
+                    </div>
+
+                    <div id="kommunView">
+                        <button type="button" id="kommun-close-btn" class="btn btn-default btn-sm" data-toggle="collaps">
+                            <p id="kommunInfo" style="font-size:14pt;">Stäng</p>
+                        </button>
+
+                        <div id="chartContainer"> </div>
+
+                    </div>
+
+                    <div id="map"></div>
+
+                    <div class="btn-group">
+
+                        <!--Button for party options-->
+                        <button type="button" class="btn btn-default btn-sm btn-party" data-toggle="collaps">
+                            <p>Parti</p>
+                        </button>
+
+                        <!--Button for kommun info-->
+                        <button type="button" class="btn btn-default btn-sm btn-kommun" data-toggle="collaps">
+                            <p> Sverige </p>
+                        </button>
+
+                        <!--placeholder button-->
+                        <button type="button" class="btn btn-default btn-sm btn-stats" data-toggle="collaps">
+                            <p> stats</p>
+                        </button>
+
+                    </div>
+
+                    <div class="stats-group">
+                        <div class="stats-block">
+                            <p id="stats-text"> Total: </p>
+                            <p id="stats1-text stats1-result"></p>
+                        </div>
+
+                        <div class="stats-block stats-block2">
+                            <p class="folkmangd-result" id="stats-text"> Folkmängd: <span class="folkmangd-result" id="stats1-text ">0</span></p>
+                        </div>
+
+                    </div>
+
                 </div>
-                
-                <div class="new-party-menu">
-                    <h2>Ställ in dina åsikter</h2>
-                    <p>Kryssa i hur mycket du håller med i nedanstående frågor. Längst till vänster - Håller inte alls med. Längst till höger - Håller med.</p>
-                    <form>
-                        <label>Partinamn</label>
-                        <input type="text" name="name"></br>
-                        
-                        <label>Partiets förkortning</label>
-                        <input type="text" name="shortname" maxlength="3">
-                        
-                        <label>Fråga 1: Arbetstiden bör förkortas</label></br>
-                        Håller inte med
-                        <input type="radio" name="q1" value="1">
-                        <input type="radio" name="q1" value="2">
-                        <input type="radio" name="q1" value="3">
-                        <input type="radio" name="q1" value="4">
-                        <input type="radio" name="q1" value="5">
-                        Håller med
-                        
-                        <label>Fråga 2: A-kassan bör höjas</label></br>
-                        Håller inte med
-                        <input type="radio" name="q2" value="1">
-                        <input type="radio" name="q2" value="2">
-                        <input type="radio" name="q2" value="3">
-                        <input type="radio" name="q2" value="4">
-                        <input type="radio" name="q2" value="5">
-                        Håller med
-                        
-                        <label>Fråga 3: Det bör vara billigare att anställa unga än andra grupper av människor</label></br>
-                        Håller inte med
-                        <input type="radio" name="q3" value="1">
-                        <input type="radio" name="q3" value="2">
-                        <input type="radio" name="q3" value="3">
-                        <input type="radio" name="q3" value="4">
-                        <input type="radio" name="q3" value="5">
-                        Håller med
-                        
-                        <label>Fråga 4: Det är viktigt att öka det ekonomiska stödet till landsbygden</label></br>
-                        Håller inte med
-                        <input type="radio" name="q4" value="1">
-                        <input type="radio" name="q4" value="2">
-                        <input type="radio" name="q4" value="3">
-                        <input type="radio" name="q4" value="4">
-                        <input type="radio" name="q4" value="5">
-                        Håller med
-                        
-                        
-                        </br><input id="new-profile" type="submit" class="btn btn-default btn-lg" value="Starta spel">
-                    </form> 
-                </div>
-                
 
-			</div>
-			
-			
-
-			<!-- Visualization content -->
-			<div id="main">
-
-				<!-- Content container -->
-				<div class="container-non-responsive">
-
-						<div id="viewMain" class="col-md-4">
-							
-                            <!-- Top menu bar -->
-                            <div class="top-group">
-                                <button id="btn-settings" class="btn btn-default btn-lg">Settings</button>
-                            </div>
-                            
-							<!-- Party options -->
-							<div id="partyView">
-								<button type="button" id="party-close-btn" class="btn btn-default btn-sm" data-toggle="collaps">
-										<p id = "kommunInfo" style="font-size:14pt;">Stäng</p>
-									</button>
-								<h1>Ditt parti</h1>
-								<p>Här kommer olika settings för ditt parti</p>
-								
-							</div>
-                            
-                            <div id="kommunView">
-                                <button type="button" id="kommun-close-btn" class="btn btn-default btn-sm" data-toggle="collaps">
-                                    <p id = "kommunInfo" style="font-size:14pt;">Stäng</p>
-									</button>
-                                <div id="chartContainer">
-                            </div>
-                            
-                                
-                            </div>
-                            
-							
-							<div id="map">								
-							</div>
-								
-                                
-                                    
-                                
-								<div class="btn-group">
-									
-									<!--Button for party options-->
-									<button type="button" class="btn btn-default btn-sm btn-party" data-toggle="collaps">
-										<p>Parti</p>
-									</button>
-									
-									<!--Button for kommun info-->
-									<button type="button" class="btn btn-default btn-sm btn-kommun" data-toggle="collaps">
-										<p> Sverige </p>
-									</button>
-									
-									<!--placeholder button-->
-									<button type="button" class="btn btn-default btn-sm btn-stats" data-toggle="collaps">
-										<p> stats</p>
-									</button>
-							
-							</div>
-                            
-                            <div class="stats-group">
-                                    <div class="stats-block">
-                                        <p id = "stats-text"> Total: </p><p id="stats1-text stats1-result"></p>
-                                    </div>
-                                
-                                <div class="stats-block stats-block2">
-                                        <p class="folkmangd-result" id = "stats-text"> Folkmängd: <span class="folkmangd-result" id="stats1-text ">0</span></p>
-                                    </div>
-                                    
-                                   <!-- <div class="stats-block">
-                                        
-                                    </div>-->
-                                
-                                
-                            </div>
-
-						</div>
-
-					</div>
+            </div>
 
 
-				</div>
+        </div>
 
-			</div>
+    </div>
 
-		</div>
+    </div>
 
-		<script src="js/map.js"></script>
-        <script src="js/main.js"></script>
-		<script src="js/buttons.js"></script>
-		<script src="js/party.js"></script>
-        <script src="js/profile.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/buttons.js"></script>
+    <script src="js/party.js"></script>
+    <script src="js/profile.js"></script>
 
-	</body>
+</body>
 
 </html>

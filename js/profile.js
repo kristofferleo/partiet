@@ -1,3 +1,3 @@
-function Profile( array ){
+function Profile(array) {
     var settings = array;
 }

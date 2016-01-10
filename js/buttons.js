@@ -22,12 +22,10 @@ $(document).ready(function () {
     $("#kommun-close-btn").click(function () {
         $("#kommunView").hide();
     });
-
-
-    $("#btn-settings").click(function () {
+    
+    $("#settings-block").click(function () {
         document.cookie = "started=no";
     });
-
 
 
 });
